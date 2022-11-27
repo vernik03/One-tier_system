@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static List<Unit> countries;
+    public static List<Unit> units;
     public static  String filepath = "src/HRDepartment.xml";
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException, ParserConfigurationException, SAXException {
 
@@ -40,8 +40,8 @@ public class Main {
         String val = scanner.nextLine();
         System.out.println("Enter Unit id");
         String val2 = scanner.nextLine();
-        String sql = "INSERT INTO schema_name.Countries(unit_name, unit_id) VALUES ('"+val+"','"+ val2+"'); ";
-        // String sql = "insert into Countries ('unit_name', 'unit_id') " + "c";
+        String sql = "INSERT INTO hr_department.units(id, name) VALUES ('"+val2+"','"+ val+"'); ";
+        // String sql = "insert into units ('id', 'name') " + "c";
         PreparedStatement preparedStmt = connection.prepareStatement(sql);
         preparedStmt.execute();
     }
@@ -54,27 +54,29 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Unit name");
         String val = scanner.nextLine();
-        String sql = "select * from schema_name.Countries;";
+        String sql = "select * from hr_department.units;";
         PreparedStatement p = connection.prepareStatement(sql);
         ResultSet  rs = p.executeQuery();
         boolean tmp = false;
         while(rs.next()){
-            String name = rs.getString("unit_name");
+            String name = rs.getString("name");
             if (name.equals(val)){
                 tmp = true;
                 break;
             }
         }
         if(tmp){
-            System.out.println("Enter Employee name");
-            String val1 = scanner.nextLine();
             System.out.println("Enter Employee id");
+            String v2 = scanner.nextLine();
+            System.out.println("Enter Unit id");
+            String val1 = scanner.nextLine();
+            System.out.println("Enter Employee name");
             int val2 = scanner.nextInt();
-            System.out.println("Enter Employee count of people");
+            System.out.println("Enter Employee surname");
             int val3 = scanner.nextInt();
-            System.out.println("Enter Employee is capital");
+            System.out.println("Enter Employee salary");
             int val4 = scanner.nextInt();
-            String sql2 = "INSERT INTO schema_name.employees(employee_namE, employee_ID,count_of_people,Salary,unit_ref) VALUES ('"+val1+"','"+ val2+"', '"+val3+"','"+val4+"','"+val+"'); ";
+            String sql2 = "INSERT INTO hr_department.employees(id, unitId, name, surname, salary) VALUES ('"+v2+"','"+ val1+"', '"+val2+"','"+val3+"','"+val4+"'); ";
             PreparedStatement preparedStmt = connection.prepareStatement(sql2);
             preparedStmt.execute();
         }
@@ -88,7 +90,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Employee name");
         String val = scanner.nextLine();
-        String sql = "delete from schema_name.employees where employee_namE = '"+val+"';";
+        String sql = "delete from hr_department.employees where employee_namE = '"+val+"';";
         PreparedStatement preparedStmt = connection.prepareStatement(sql);
         preparedStmt.execute();
     }
@@ -101,17 +103,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Unit name");
         String val = scanner.nextLine();
-        String sql = "delete from schema_name.employees where unit_ref = '"+val+"';";
+        String sql = "delete from hr_department.employees where unitId = '"+val+"';";
         PreparedStatement preparedStmt = connection.prepareStatement(sql);
         preparedStmt.execute();
-        String sql2 = "delete from schema_name.Countries where unit_name = '"+val+"';";
+        String sql2 = "delete from hr_department.units where name = '"+val+"';";
         PreparedStatement preparedStmt2 = connection.prepareStatement(sql2);
         preparedStmt2.execute();
     }
     private static Employee getEmployee(Node node) {
         Element element = (Element) node;
         Employee lang = new Employee(getTagValue("Name", element),getTagValue("employeeId", element),
-                getTagValue("employeeRef", element),getTagValue("Surname", element),getTagValue("Salary",element));
+                getTagValue("unitId", element),getTagValue("Surname", element),getTagValue("Salary",element));
         return lang;
     }
 
@@ -161,7 +163,7 @@ public class Main {
             temp = temp+countOfCities;
             langList.add(getUnit(nodeList.item(i),lists.get(i)));
         }
-        countries = langList;
+        units = langList;
         for (Unit lang : langList) {
             lang.display();
             System.out.println(" ");
@@ -180,8 +182,8 @@ public class Main {
 
             doc.appendChild(rootElement);
 
-            for(int i = 0; i<countries.size();i++){
-                rootElement.appendChild(getUnitToFile(doc,countries.get(i)));
+            for(int i = 0; i<units.size();i++){
+                rootElement.appendChild(getUnitToFile(doc,units.get(i)));
             }
 
 
@@ -229,13 +231,13 @@ public class Main {
 
 
         Node item2 = null;
-        item2 = doc.createElement("employeeId");
+        item2 = doc.createElement("unitId");
         item2.appendChild(doc.createTextNode(c.id));
         item.appendChild(item2);
 
         Node item3 = null;
-        item3 = doc.createElement("employeeRef");
-        item3.appendChild(doc.createTextNode(c.ref));
+        item3 = doc.createElement("unitId");
+        item3.appendChild(doc.createTextNode(c.unit));
         item.appendChild(item3);
 
         Node item4 = null;
@@ -294,12 +296,12 @@ public class Main {
 
     private static void deleteUnitXML(){
         System.out.println("Enter which unit delete :");
-        for(int  i =0; i< countries.size();i++){
+        for(int  i =0; i< units.size();i++){
             System.out.println(i+" unit");
         }
         Scanner keyboard = new Scanner(System.in);
         int choice = keyboard.nextInt();
-        countries.remove(choice);
+        units.remove(choice);
     }
 
     private static void makeDBFromXml() throws ClassNotFoundException, SQLException {
@@ -308,23 +310,23 @@ public class Main {
         String password = "admin";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(jdbcURL,username,password);
-        for(int i = 0;i<countries.size();i++){
+        for(int i = 0;i<units.size();i++){
 
-            String val = countries.get(i).name;
-            String v2 = countries.get(i).id;
-            String sql = "INSERT INTO schema_name.Countries(unit_name, unit_id) VALUES ('"+val+"','"+ v2+"'); ";
+            String val = units.get(i).name;
+            String v2 = units.get(i).id;
+            String sql = "INSERT INTO hr_department.units(id, name) VALUES ('"+v2+"','"+ val+"'); ";
             PreparedStatement preparedStmt = connection.prepareStatement(sql);
             preparedStmt.execute();
-            for(int j = 0; j<countries.get(i).employeers.size();j++){
+            for(int j = 0; j<units.get(i).employeers.size();j++){
 
-                String val1 = countries.get(i).employeers.get(j).name;
+                String val1 = units.get(i).employeers.get(j).name;
 
-                String val2 = countries.get(i).employeers.get(j).id;
+                String val2 = units.get(i).employeers.get(j).id;
 
-                String val3 = countries.get(i).employeers.get(j).surname;
+                String val3 = units.get(i).employeers.get(j).surname;
 
-                String val4 = countries.get(i).employeers.get(j).salary;
-                String sql2 = "INSERT INTO schema_name.employees(employee_namE, employee_ID,count_of_people,Salary,unit_ref) VALUES ('"+val1+"','"+ val2+"', '"+val3+"','"+val4+"','"+val+"'); ";
+                String val4 = units.get(i).employeers.get(j).salary;
+                String sql2 = "INSERT INTO hr_department.employees(id, unitId, name, surname, salary) VALUES ('"+val2+"','"+ v2+"', '"+val1+"','"+val3+"','"+val4+"'); ";
                 PreparedStatement preparedStmt2 = connection.prepareStatement(sql2);
                 preparedStmt2.execute();
             }

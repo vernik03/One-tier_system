@@ -75,7 +75,7 @@ public class Unit {
                     case 3:{
                         System.out.println("Enter ref :");
                         String tmp = keyboard.nextLine();
-                        employeers.get(choice).ref = tmp;
+                        employeers.get(choice).unit = tmp;
                         break;
                     }
                     case 4:{

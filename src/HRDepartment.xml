@@ -5,21 +5,21 @@
         <id>1</id>
         <employee>
             <employeeId>11</employeeId>
-            <employeeRef>reff1</employeeRef>
+            <unitId>1</unitId>
             <Name>Vasyl</Name>
             <Surname>Petrov</Surname>
             <Salary>1000</Salary>
         </employee>
         <employee>
             <employeeId>12</employeeId>
-            <employeeRef>reff2</employeeRef>
+            <unitId>1</unitId>
             <Name>Mike</Name>
             <Surname>Zelechyn</Surname>
             <Salary>1700</Salary>
         </employee>
         <employee>
             <employeeId>13</employeeId>
-            <employeeRef>reff3</employeeRef>
+            <unitId>1</unitId>
             <Name>Vlad</Name>
             <Surname>Kilko</Surname>
             <Salary>2000</Salary>
@@ -30,21 +30,21 @@
         <id>2</id>
         <employee>
             <employeeId>21</employeeId>
-            <employeeRef>reff4</employeeRef>
+            <unitId>2</unitId>
             <Name>Maryna</Name>
             <Surname>Mirova</Surname>
             <Salary>1560</Salary>
         </employee>
         <employee>
             <employeeId>22</employeeId>
-            <employeeRef>reff5</employeeRef>
+            <unitId>2</unitId>
             <Name>Pavlo</Name>
             <Surname>Nevedrov</Surname>
             <Salary>2300</Salary>
         </employee>
         <employee>
             <employeeId>23</employeeId>
-            <employeeRef>reff6</employeeRef>
+            <unitId>2</unitId>
             <Name>Alex</Name>
             <Surname>Frankov</Surname>
             <Salary>3200</Salary>
@@ -55,21 +55,21 @@
         <id>3</id>
         <employee>
             <employeeId>31</employeeId>
-            <employeeRef>reff7</employeeRef>
+            <unitId>3</unitId>
             <Name>Veronika</Name>
             <Surname>Ozerova</Surname>
             <Salary>2500</Salary>
         </employee>
         <employee>
             <employeeId>32</employeeId>
-            <employeeRef>reff8</employeeRef>
+            <unitId>3</unitId>
             <Name>Viktor</Name>
             <Surname>Menegrot</Surname>
             <Salary>1890</Salary>
         </employee>
         <employee>
             <employeeId>33</employeeId>
-            <employeeRef>reff9</employeeRef>
+            <unitId>3</unitId>
             <Name>Oleg</Name>
             <Surname>Olegov</Surname>
             <Salary>1600</Salary>
