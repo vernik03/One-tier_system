@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b23d926-6d0d-40b5-80a7-6ce78df05d7d" name="Changes" comment="works">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unit.java" afterDir="false" />
-    </list>
+    <list default="true" id="6b23d926-6d0d-40b5-80a7-6ce78df05d7d" name="Changes" comment="change output" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +70,7 @@
       <workItem from="1669512773052" duration="67000" />
       <workItem from="1669513024454" duration="3508000" />
       <workItem from="1669551853728" duration="8787000" />
-      <workItem from="1669653641411" duration="903000" />
+      <workItem from="1669653641411" duration="1026000" />
     </task>
     <task id="LOCAL-00001" summary="need database">
       <created>1669516998980</created>
@@ -91,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669560196032</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="change output">
+      <created>1669654923586</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669654923586</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +113,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="need database" />
     <MESSAGE value="works" />
-    <option name="LAST_COMMIT_MESSAGE" value="works" />
+    <MESSAGE value="change output" />
+    <option name="LAST_COMMIT_MESSAGE" value="change output" />
   </component>
 </project>
