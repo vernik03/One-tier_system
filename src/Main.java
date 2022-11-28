@@ -138,7 +138,7 @@ public class Main {
         builder = factory.newDocumentBuilder();
         Document document = builder.parse(xmlFile);
         document.getDocumentElement().normalize();
-        System.out.println("Корневой элемент: " + document.getDocumentElement().getNodeName());
+        System.out.println("Root element: " + document.getDocumentElement().getNodeName());
 
         NodeList nodeList = document.getElementsByTagName("Unit");
         NodeList nodeList1 = document.getElementsByTagName("employee");

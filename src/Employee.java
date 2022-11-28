@@ -12,10 +12,9 @@ public class Employee {
         this.salary = is;
     }
     public void display() {
-        System.out.println("Employee :"+ name);
+        System.out.println("Employee :"+ name + " " + surname);
         System.out.println("Employee id :"+ id);
         System.out.println("Unit id: "+ unit);
-        System.out.println("Employee count Of people: "+ surname);
         System.out.println("Employee  stoliza : "+ salary);
     }
 }

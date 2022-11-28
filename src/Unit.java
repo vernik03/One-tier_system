@@ -52,11 +52,11 @@ public class Unit {
                 }
                 choice = keyboard.nextInt();
                 System.out.println("Enter which param you want to change: ");
-                System.out.println("1. Unit name");
-                System.out.println("2. Unit id");
-                System.out.println("3. Employee ref");
-                System.out.println("4. Employee count of people");
-                System.out.println("5. Employee is stol");
+                System.out.println("1. Employee name");
+                System.out.println("2. Employee id");
+                System.out.println("3. Unit id");
+                System.out.println("4. Employee surname");
+                System.out.println("5. Employee salary");
                 int choice2 = 0;
                 choice2 = keyboard.nextInt();
                 switch (choice2){
@@ -73,19 +73,19 @@ public class Unit {
                         break;
                     }
                     case 3:{
-                        System.out.println("Enter ref :");
+                        System.out.println("Enter unit id :");
                         String tmp = keyboard.nextLine();
                         employeers.get(choice).unit = tmp;
                         break;
                     }
                     case 4:{
-                        System.out.println("Enter countOfPeope :");
+                        System.out.println("Enter surname :");
                         String tmp = keyboard.nextLine();
                         employeers.get(choice).surname = tmp;
                         break;
                     }
                     case 5:{
-                        System.out.println("Enter isStoliza :");
+                        System.out.println("Enter salary :");
                         String tmp = keyboard.nextLine();
                         employeers.get(choice).salary = tmp;
                         break;
